@@ -3,7 +3,7 @@ const path = require('path');
 const server = express();
 server.get('/',(req,res)=>{
     res.sendFile(
-        path.resolve('./yanhua/index.html')
+        path.resolve('./wenzi/index.html')
     )
 })
 server.listen(80);
