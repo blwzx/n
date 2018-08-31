@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.js"></script>
+</head>
+<body>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>attr demo</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #box {
+        width: 500px;
+        height: 500px;
+        background: #1890ff;
+        margin: 100px auto;
+        border: 1px solid #1890ff;
+    }
+
+    .block {
+        float: left;
+        width: 48px;
+        height: 48px;
+        border: 1px solid #1890ff;
+        background: #fff;
+    }
+
+    .open {
+        background: #1890ff;
+        font-size: consolas;
+        line-height: 48px;
+        text-align: center;
+        color: #fff;
+    }
+</style>
+<body>
+
+<div id="box">
+
+</div>
+</body>
+</html>
+</body>
+</html>
+<script>
+    $(function () {
+        let box = $('#box');
+        for (let i = 0; i < 100; i++) {
+            $('<div></div>')
+                .attr('v', Math.random() > 0.8 ? 1 : 0)
+                .addClass('block')
+                .appendTo('#box');
+        }
+        box.on('click', '.block', function () {
+            if ($(this).attr('v') == '1') {
+                alert('boomxiakalaka')
+            } else {
+                let prev = $(this).prevAll();
+                let next = $(this).nextAll();
+                let num = 0;
+                $([
+                    prev.eq(0),
+                    prev.eq(8),
+                    prev.eq(9),
+                    prev.eq(10),
+                    next.eq(0),
+                    next.eq(8),
+                    next.eq(9),
+                    next.eq(10),
+                ]).each(function (k, v) {
+                    num += Number($(v).attr('v'))
+                })
+                $(this).addClass('open').text(num);
+            }
+        })
+
+    })
+</script>
