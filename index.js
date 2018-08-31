@@ -6,4 +6,4 @@ server.get('/',(req,res)=>{
         path.resolve('./views/index.html')
     )
 })
-server.listen(5000);
+server.listen(80);
